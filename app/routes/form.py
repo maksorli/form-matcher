@@ -7,7 +7,7 @@ from app.schemas import FormTemplateOut, InputData
 from app.services.form_service import find_matching_template
 from app.utils.validation import deduce_type
 
-router = APIRouter()
+router = APIRouter(prefix="/api")
 
 
 @router.post("/get_form")

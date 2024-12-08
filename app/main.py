@@ -7,6 +7,11 @@ from app.routes.form import router as form_router
 app = FastAPI()
 
 
+@app.get("/")
+def root():
+    return {"message": "Form-matcher API"}
+
+
 @app.on_event("startup")
 async def startup():
     try:
@@ -14,7 +19,7 @@ async def startup():
         print("Database connected successfully!")
     except Exception as e:
         print(f"Failed to connect to database: {e}")
-        raise e  # Прерывание запуска при ошибке подключения
+        raise e
 
 
 app.include_router(form_router)
